@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head><title>Home</title></head>
+<body>
+  <h1>Hello from frontend 👋</h1>
+  <p id="status">Checking backend...</p>
+
+  <script>
+    fetch("/api/status")
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById("status").textContent = `Backend says: ${data.status}`;
+      })
+      .catch(err => {
+        document.getElementById("status").textContent = "Backend not available";
+      });
+  </script>
+</body>
+</html>
